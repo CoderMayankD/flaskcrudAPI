@@ -80,6 +80,7 @@ def update(id):
 def empty():
     return render_template('empty.html')
     
+    
 #--------------------------------------------------------------------
 if __name__=="__main__":
     app.run(debug=True)
