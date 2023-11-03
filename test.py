@@ -2,6 +2,8 @@ from flask import Flask, render_template, url_for,request,redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from datetime import datetime as dt
+from waitress import serve
+
 
 
 print("starting test.py")
@@ -82,6 +84,13 @@ def empty():
     
     
 #--------------------------------------------------------------------
+mode ='prod'
+
 if __name__=="__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    if mode=='dev':
+        app.run( host='0.0.0.0', port=8080, debug=True)
+    else:
+        serve(app, host='0.0.0.0', port=8080)
+        
 
